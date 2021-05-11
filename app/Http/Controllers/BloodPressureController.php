@@ -44,24 +44,24 @@ class BloodPressureController extends Controller
         //$chart->dataset('My Dataset 1', 'line', $bp->values());
 
         //bar chart
-        $hRate->dataset('Systolic Rate', 'bar', $bpRate->values());
+        $hRate->dataset('Systolic Rate', 'bar', $bpRate->values())->backgroundColor('red');
+        $hRate->dataset('Heart Rate', 'line', $bpSystolic->values())->backgroundColor('rgba(0,0,0, .4)');
 
 
 
 
-
-        $sRate = new BloodPressureChart;
-        $sRate->labels($bpSystolic->keys());
+        // $sRate = new BloodPressureChart;
+        // $sRate->labels($bpSystolic->keys());
 
         //line chart
         //$chart->dataset('My Dataset 1', 'line', $bp->values());
 
         //bar chart
-        $sRate->dataset('Heart Rate', 'bar', $bpSystolic->values());
+        //$sRate->dataset('Heart Rate', 'line', $bpSystolic->values())->backgroundColor('rgba(0,0,0, .4)');
 
 
 
-        return view('index', compact('hRate', 'sRate'));
+        return view('index', compact('hRate'));
     }
 
     /**
