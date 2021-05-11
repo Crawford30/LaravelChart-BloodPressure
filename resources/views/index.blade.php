@@ -18,7 +18,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloribus officiis voluptate veniam,
                     architecto eum at mollitia quos inventore ipsa sit, excepturi cum reiciendis temporibus? Quisquam
                     obcaecati laudantium expedita in.</p>
-                <p>https://www.youtube.com/watch?v=tBf4AUZM87A&list=PLylMDDjFIp1C3qRVKbj30i-l9S-PBz5bx&index=4</p>
+                {{-- <p>https://www.youtube.com/watch?v=tBf4AUZM87A&list=PLylMDDjFIp1C3qRVKbj30i-l9S-PBz5bx&index=4</p> --}}
             </div>
             {{-- <div class="w-1/2">
                 {!! $sRate->container() !!}
