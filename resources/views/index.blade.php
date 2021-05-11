@@ -5,9 +5,11 @@
     <div class="container">
         <h1>Blood Pressure</h1>
 
-        {!! $chart->container() !!}
+        {!! $hRate->container() !!}
+        {!! $sRate->container() !!}
 
-        {!! $chart->script() !!}
+        {!! $hRate->script() !!}
+        {!! $sRate->script() !!}
     </div>
 
 @endsection

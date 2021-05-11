@@ -17,14 +17,51 @@ class BloodPressureController extends Controller
     {
         $bp = BloodPressure::all();
 
-        $chart = new BloodPressureChart;
-
-        $chart->labels(['One', 'Two', 'Three', 'Four']);
-        $chart->dataset('My Dataset 1', 'line', [1, 2, 3, 4]);
+        //when pluck is used, specifies the type of field you want.
+        // $bp = BloodPressure::pluck();
 
 
 
-        return view('index', compact('chart'));
+        // $bp = BloodPressure::pluck('rate', 'created_at');
+
+
+
+
+        $bpSystolic = BloodPressure::OrderBy('created_at')->pluck('systolic', 'created_at');
+
+
+        // return $bp->keys();
+        // return $bp->values();
+
+
+
+        $bpRate = BloodPressure::OrderBy('created_at')->pluck('rate', 'created_at');
+
+        $hRate = new BloodPressureChart;
+        $hRate->labels($bpRate->keys());
+
+        //line chart
+        //$chart->dataset('My Dataset 1', 'line', $bp->values());
+
+        //bar chart
+        $hRate->dataset('Systolic Rate', 'bar', $bpRate->values());
+
+
+
+
+
+        $sRate = new BloodPressureChart;
+        $sRate->labels($bpSystolic->keys());
+
+        //line chart
+        //$chart->dataset('My Dataset 1', 'line', $bp->values());
+
+        //bar chart
+        $sRate->dataset('Heart Rate', 'bar', $bpSystolic->values());
+
+
+
+        return view('index', compact('hRate', 'sRate'));
     }
 
     /**
